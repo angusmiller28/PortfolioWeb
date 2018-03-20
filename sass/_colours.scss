@@ -9,7 +9,7 @@ $theme-secondary-darken: lighten($theme-secondary, 15%);
 $theme-secondary-gradient: -webkit-gradient(linear, left top, left bottom, from($theme-secondary), to($theme-secondary-darken));
 
 $theme-accent: red;
-
+$theme-disabled: grey;
 
 /** Light **/
 $theme-light-background: #E6EAEE;
