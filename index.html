@@ -11,22 +11,25 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/brands.css" integrity="sha384-IiIL1/ODJBRTrDTFk/pW8j0DUI5/z9m1KYsTm/RjZTNV8RHLGZXkUDwgRRbbQ+Jh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <div id="container" >
       <nav id="nav-container">
+        <div id="nav-bar-container">
+          <ul>
+            <li id="nav-bar-logo"><div id="logo">
+              <img src="img/logo" alt="logo" height="23.15px" width="62.9px" />
+            </div></li>
+          </ul>
+          <ul id="nav-bar-nav">
+            <li id="nav-projects"><a href=""><i class="fas fa-folder-open"></i></a></li>
+            <li id="nav-projects"><a href=""><i class="fas fa-bars"></i></a></li>
+          </ul>
+        </div>
+
         <section id="nav-wrapper">
-          <div id="nav-bar-container">
-            <ul>
-              <li id="nav-bar-logo"><div id="logo">
-                <img src="img/logo" alt="logo" height="23.15px" width="62.9px" />
-              </div></li>
-            </ul>
-            <ul id="nav-bar-nav">
-              <li id="nav-projects"><a href=""><i class="fas fa-folder-open"></i></a></li>
-              <li id="nav-projects"><a href=""><i class="fas fa-bars"></i></a></li>
-            </ul>
-          </div>
 
           <div id="profile-icon">
             <img src="img/profile_pic.png" alt="" height="156px" width="156px" />
@@ -63,7 +66,7 @@
               </ul>
               <ul>
                 <li><p><i class="fab fa-github"></i></p></li>
-                <li><a href="">angusmiller28</a></li>
+                <li><a href=""><p>angusmiller28</p></a></li>
               </ul>
             </ul>
           </div>
@@ -75,14 +78,14 @@
               <li><h3><i class="fas fa-address-book"></i></h3></li>
               <li><h3>Contact</h3></li>
             </ul>
-            <ul>
+            <ul id="contact-items">
               <ul>
                 <li><p><i class="fas fa-envelope"></i></p></li>
                 <li><p>angus.miller28@gmail.com</p></li>
               </ul>
               <ul>
                 <li><p><i class="fas fa-map"></i></p></li>
-                <li><p>128 Vulture St, South Brisbane Queensland 4101</p></li>
+                <li><div><p>128 Vulture St, South Brisbane Queensland 4101</p></div></li>
               </ul>
               <ul>
                 <li><p><i class="fas fa-phone"></i></p></li>
@@ -98,7 +101,7 @@
               <li><h3><i class="fas fa-clipboard-list"></i></h3></li>
               <li><h3>Transcript link</h3></li>
             </ul>
-            <a href="">https/tinyurl.com/yd86u68g</a>
+            <div><p><a href="">https/tinyurl.com/yd86u68g</a></p></div>
           </div>
 
           <div id="nav-footer">
@@ -116,7 +119,7 @@
           </ul>
         </div>
 
-        <h1 id="title">Resume</h1>
+        <div id="title-container"><h1 id="title">Resume</h1></div>
 
         <ul id="education-container">
           <li>
@@ -126,7 +129,7 @@
             </ul>
           </li>
           <li><p>University of Southern Queensland
-              S1 2015 - S2 2017 <br> Bachelor of
+              S1 2015 - S2 2017 : Bachelor of
               Science (Computing) - GPA 5.25</p>
           </li>
         </ul>

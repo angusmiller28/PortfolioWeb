@@ -2,6 +2,7 @@
 @import "_mixins";
 @import "_font";
 
+$padding: 20px;
 
 #container {
   background-color: $theme-background;
@@ -9,6 +10,7 @@
   .item-list-title {
     display: flex;
     flex-direction: row;
+    padding: 0px;
     i {
       margin-right: 1em;
     }
@@ -17,9 +19,49 @@
   nav#nav-container {
     background: $theme-primary-gradient;
 
+    hr {
+      margin: 50px 0px;
+      min-width: 300px !important;
+      width: 100% !important;
+      max-width: 500px !important;
+    }
+
+    #nav-bar-container {
+      padding: $padding;
+      display: grid;
+      grid-template-columns: 10% auto;
+
+      ul {
+        display: flex;
+        flex-direction: row;
+      }
+
+      #nav-bar-logo {
+        flex: display;
+        align-self: center;
+      }
+
+      ul#nav-bar-nav {
+        justify-content: flex-end;
+        li {
+          margin: 0px 30px;
+          background: $theme-disabled;
+          border-radius: 50%;
+
+          i {
+            padding: 20px;
+            color: white;
+          }
+        }
+      }
+    }
+
     section#nav-wrapper {
-      margin:  0px 100px;
-      padding:  50px 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding:  50px 50px;
       p, a, i {
         color: white;
       }
@@ -28,55 +70,46 @@
         color: $theme-primary-light;
       }
 
-      #nav-bar-container {
-        $padding: 20px;
-        padding: $padding;
-        display: grid;
-        grid-template-columns: 10% auto;
-
-        ul {
-          display: flex;
-          flex-direction: row;
-        }
-
-        #nav-bar-logo {
-          flex: display;
-          align-self: center;
-        }
-
-        ul#nav-bar-nav {
-          justify-content: flex-end;
-          li {
-            margin: 0px 30px;
-            background: $theme-disabled;
-            border-radius: 50%;
-
-            i {
-              padding: 20px;
-            }
-          }
-        }
-      }
-
       #profile-icon {
         display: flex;
         justify-content: center;
       }
 
-      #profile-content {
-
+      [id$=container]{
+        min-width: 300px !important;
+        width: 100% !important;
+        max-width: 500px !important;
       }
 
-      #social-container {
-        #social-items {
+      #social-container, #contact-container {
+        #social-items, #contact-items {
           display: flex;
-          justify-content: space-around;
+          justify-content: center;
+          flex-direction: column;
+          padding: 0px;
           ul {
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            padding: 0px;
+            margin-bottom: 30px !important;
+
+            p:nth-child(1){
+              margin-bottom: 0px;
+
+              i { font-size: 1.414em; }
+            }
+            div>p{
+              text-align: center;
+            }
+
           }
+        }
+      }
+
+      #transcript-container {
+        div>p {
+          text-align: center;
         }
       }
 
@@ -87,9 +120,28 @@
   }
 
   section#body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: $padding;
+    ul {
+      padding: 0px;
+    }
 
     #nav-outside {
       display: none;
+    }
+
+    #title-container {
+      text-align: center;
+      margin: 50px 0px;
+    }
+
+    ul[id$=container]{
+      margin-bottom: 50px !important;
+      min-width: 300px !important;
+      width: 100% !important;
+      max-width: 500px !important;
     }
 
     #title {
@@ -104,8 +156,17 @@
 
   footer {
     background-color: $theme-footer;
+    text-align: center;
+    padding: 20px;
     p {
       @include text-gradient($theme-primary, $theme-primary-darken);
     }
   }
+}
+
+
+/********************************
+*********** Responsive **********/
+@media screen and (max-width: 667px){
+
 }
