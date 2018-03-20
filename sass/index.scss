@@ -1,0 +1,13 @@
+nav#nav-container {
+  $light-purple: #AD86FC;
+
+  background: linear-gradient(-180deg, #6D51DE, #493695);
+
+  p, a, i {
+    color: white;
+  }
+
+  h3, h3>i {
+    color: $light-purple;
+  }
+}

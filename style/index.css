@@ -1,0 +1,8 @@
+nav#nav-container {
+  background: linear-gradient(-180deg, #6D51DE, #493695); }
+  nav#nav-container p, nav#nav-container a, nav#nav-container i {
+    color: white; }
+  nav#nav-container h3, nav#nav-container h3 > i {
+    color: #AD86FC; }
+
+/*# sourceMappingURL=index.css.map */
