@@ -1,13 +1,52 @@
-nav#nav-container {
-  $light-purple: #AD86FC;
+@import "_colours";
+@import "_mixins";
 
-  background: linear-gradient(-180deg, #6D51DE, #493695);
+body {
+  margin: 0px !important;
+}
+#container {
+  background-color: $theme-background;
 
-  p, a, i {
-    color: white;
+  nav#nav-container {
+    background: $theme-primary-gradient;
+
+
+    /*****************************
+    ************ FONT ************
+    *****************************/
+    p, a, i {
+      color: white;
+    }
+
+    h3, h3>i {
+      color: $theme-primary-light;
+    }
+
+    #nav-footer>p {
+      display: none;
+    }
   }
 
-  h3, h3>i {
-    color: $light-purple;
+  section#body-container {
+
+    #nav-outside {
+      display: none;
+    }
+
+    #title {
+      @include text-gradient($theme-primary, $theme-primary-darken);
+    }
+
+    h3>i, h3 {
+      @include text-gradient($theme-secondary, $theme-secondary-darken);
+    }
+
+  }
+
+  footer {
+    background-color: $theme-footer;
+    p {
+      @include text-gradient($theme-primary, $theme-primary-darken);
+    }
   }
 }

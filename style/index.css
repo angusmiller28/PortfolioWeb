@@ -1,8 +1,41 @@
-nav#nav-container {
-  background: linear-gradient(-180deg, #6D51DE, #493695); }
-  nav#nav-container p, nav#nav-container a, nav#nav-container i {
-    color: white; }
-  nav#nav-container h3, nav#nav-container h3 > i {
-    color: #AD86FC; }
+/** Light **/
+body {
+  margin: 0px !important; }
+
+#container {
+  background-color: #E6EAEE; }
+  #container nav#nav-container {
+    background: linear-gradient(-180deg, #6D51DE, #4324be);
+    /*****************************
+    ************ FONT ************
+    *****************************/ }
+    #container nav#nav-container p, #container nav#nav-container a, #container nav#nav-container i {
+      color: white; }
+    #container nav#nav-container h3, #container nav#nav-container h3 > i {
+      color: #a391ea; }
+    #container nav#nav-container #nav-footer > p {
+      display: none; }
+  #container section#body-container #nav-outside {
+    display: none; }
+  #container section#body-container #title {
+    background: #6D51DE;
+    background: linear-gradient(-180deg, #6D51DE, #4324be);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: initial; }
+  #container section#body-container h3 > i, #container section#body-container h3 {
+    background: #E98A0C;
+    background: linear-gradient(-180deg, #E98A0C, #f6ad4c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: initial; }
+  #container footer {
+    background-color: white; }
+    #container footer p {
+      background: #6D51DE;
+      background: linear-gradient(-180deg, #6D51DE, #4324be);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: initial; }
 
 /*# sourceMappingURL=index.css.map */
