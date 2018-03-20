@@ -4,8 +4,22 @@
 
 $padding: 20px;
 
+
 #container {
   background-color: $theme-background;
+
+  #nav-bar-nav, #nav-outside {
+    li {
+      margin: 0px 10px;
+      background: $theme-disabled;
+      border-radius: 50%;
+
+      i {
+        padding: 20px;
+        color: white;
+      }
+    }
+  }
 
   .item-list-title {
     display: flex;
@@ -43,16 +57,6 @@ $padding: 20px;
 
       ul#nav-bar-nav {
         justify-content: flex-end;
-        li {
-          margin: 0px 30px;
-          background: $theme-disabled;
-          border-radius: 50%;
-
-          i {
-            padding: 20px;
-            color: white;
-          }
-        }
       }
     }
 
@@ -137,6 +141,14 @@ $padding: 20px;
       margin: 50px 0px;
     }
 
+    #cover-letter-container {
+      li>ul {
+        li:nth-child(2) {
+          flex-grow: 1;
+        }
+      }
+    }
+
     ul[id$=container]{
       margin-bottom: 50px !important;
       min-width: 300px !important;
@@ -167,6 +179,38 @@ $padding: 20px;
 
 /********************************
 *********** Responsive **********/
-@media screen and (max-width: 667px){
+@media (min-width: 1920px){
 
+  #nav-bar-nav {
+    display: none !important;
+  }
+
+  #nav-outside {
+    display: flex !important;
+    width: 100%;
+    max-width: 1200px !important;
+    justify-content: flex-end;
+    #nav-bar-outside {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  #container {
+    display: grid;
+    grid-template-columns: 500px auto !important;
+    grid-template-areas:
+      "nav body"
+      "footer footer"
+  }
+
+  #body-container {
+    grid-area: body;
+  }
+
+
+
+  footer {
+    grid-area: footer;
+  }
 }

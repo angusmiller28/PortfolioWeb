@@ -17,11 +17,18 @@ h3 {
 
 /** line-height **/
 p {
-  line-height: 1.3125em; }
+  line-height: 1.414em; }
 
 /** leading **/
 #container {
   background-color: #E6EAEE; }
+  #container #nav-bar-nav li, #container #nav-outside li {
+    margin: 0px 10px;
+    background: grey;
+    border-radius: 50%; }
+    #container #nav-bar-nav li i, #container #nav-outside li i {
+      padding: 20px;
+      color: white; }
   #container .item-list-title {
     display: flex;
     flex-direction: row;
@@ -47,13 +54,6 @@ p {
         align-self: center; }
       #container nav#nav-container #nav-bar-container ul#nav-bar-nav {
         justify-content: flex-end; }
-        #container nav#nav-container #nav-bar-container ul#nav-bar-nav li {
-          margin: 0px 30px;
-          background: grey;
-          border-radius: 50%; }
-          #container nav#nav-container #nav-bar-container ul#nav-bar-nav li i {
-            padding: 20px;
-            color: white; }
     #container nav#nav-container section#nav-wrapper {
       display: flex;
       flex-direction: column;
@@ -104,6 +104,8 @@ p {
     #container section#body-container #title-container {
       text-align: center;
       margin: 50px 0px; }
+    #container section#body-container #cover-letter-container li > ul li:nth-child(2) {
+      flex-grow: 1; }
     #container section#body-container ul[id$=container] {
       margin-bottom: 50px !important;
       min-width: 300px !important;
@@ -134,5 +136,28 @@ p {
 
 /********************************
 *********** Responsive **********/
+@media (min-width: 1920px) {
+  #nav-bar-nav {
+    display: none !important; }
+
+  #nav-outside {
+    display: flex !important;
+    width: 100%;
+    max-width: 1200px !important;
+    justify-content: flex-end; }
+    #nav-outside #nav-bar-outside {
+      display: flex;
+      flex-direction: row; }
+
+  #container {
+    display: grid;
+    grid-template-columns: 500px auto !important;
+    grid-template-areas: "nav body" "footer footer"; }
+
+  #body-container {
+    grid-area: body; }
+
+  footer {
+    grid-area: footer; } }
 
 /*# sourceMappingURL=index.css.map */
