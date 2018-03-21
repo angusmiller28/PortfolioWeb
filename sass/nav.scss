@@ -1,0 +1,66 @@
+@import "_colours";
+@import "_mixins";
+@import "_font";
+
+$padding: 20px;
+
+nav#nav-container {
+  background: $theme-primary-gradient;
+
+  ul#nav-bar-nav {
+    justify-content: flex-end;
+  }
+}
+
+#nav-bar-nav, #nav-outside {
+  li {
+    margin: 0px 10px;
+    background: $theme-disabled;
+    border-radius: 50%;
+
+    i {
+      padding: 20px;
+      color: white;
+    }
+  }
+}
+
+#nav-bar-container {
+  padding: $padding;
+  display: grid;
+  grid-template-columns: 10% auto;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  #nav-bar-logo {
+    flex: display;
+    align-self: center;
+  }
+}
+
+#nav-outside {
+  display: none;
+}
+
+/********************************
+*********** Responsive **********/
+@media (min-width: 1920px){
+
+  #nav-bar-nav {
+    display: none !important;
+  }
+
+  #nav-outside {
+    display: flex !important;
+    width: 100%;
+    max-width: 1200px !important;
+    justify-content: flex-end;
+    #nav-bar-outside {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+}

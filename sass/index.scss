@@ -4,22 +4,8 @@
 
 $padding: 20px;
 
-
 #container {
   background-color: $theme-background;
-
-  #nav-bar-nav, #nav-outside {
-    li {
-      margin: 0px 10px;
-      background: $theme-disabled;
-      border-radius: 50%;
-
-      i {
-        padding: 20px;
-        color: white;
-      }
-    }
-  }
 
   .item-list-title {
     display: flex;
@@ -31,33 +17,11 @@ $padding: 20px;
   }
 
   nav#nav-container {
-    background: $theme-primary-gradient;
-
     hr {
       margin: 50px 0px;
       min-width: 300px !important;
       width: 100% !important;
       max-width: 500px !important;
-    }
-
-    #nav-bar-container {
-      padding: $padding;
-      display: grid;
-      grid-template-columns: 10% auto;
-
-      ul {
-        display: flex;
-        flex-direction: row;
-      }
-
-      #nav-bar-logo {
-        flex: display;
-        align-self: center;
-      }
-
-      ul#nav-bar-nav {
-        justify-content: flex-end;
-      }
     }
 
     section#nav-wrapper {
@@ -132,10 +96,6 @@ $padding: 20px;
       padding: 0px;
     }
 
-    #nav-outside {
-      display: none;
-    }
-
     #title-container {
       text-align: center;
       margin: 50px 0px;
@@ -156,14 +116,6 @@ $padding: 20px;
       max-width: 500px !important;
     }
 
-    #title {
-      @include text-gradient($theme-primary, $theme-primary-darken);
-    }
-
-    h3>i, h3 {
-      @include text-gradient($theme-secondary, $theme-secondary-darken);
-    }
-
   }
 
   footer {
@@ -180,22 +132,6 @@ $padding: 20px;
 /********************************
 *********** Responsive **********/
 @media (min-width: 1920px){
-
-  #nav-bar-nav {
-    display: none !important;
-  }
-
-  #nav-outside {
-    display: flex !important;
-    width: 100%;
-    max-width: 1200px !important;
-    justify-content: flex-end;
-    #nav-bar-outside {
-      display: flex;
-      flex-direction: row;
-    }
-  }
-
   #container {
     display: grid;
     grid-template-columns: 500px auto !important;
@@ -207,8 +143,6 @@ $padding: 20px;
   #body-container {
     grid-area: body;
   }
-
-
 
   footer {
     grid-area: footer;

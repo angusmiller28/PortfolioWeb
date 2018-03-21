@@ -25,3 +25,16 @@ p {
 // p {
 //   letter-spacing: 0.05em;
 // }
+
+#title-container {
+  text-align: center;
+  margin: 50px 0px;
+}
+
+#title {
+  @include text-gradient($theme-primary, $theme-primary-darken);
+}
+
+h3>i, h3 {
+  @include text-gradient($theme-secondary, $theme-secondary-darken);
+}
