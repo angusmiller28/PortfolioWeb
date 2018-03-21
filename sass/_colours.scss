@@ -8,7 +8,7 @@ $theme-secondary-light: darken($theme-secondary, 15%);
 $theme-secondary-darken: lighten($theme-secondary, 15%);
 $theme-secondary-gradient: -webkit-gradient(linear, left top, left bottom, from($theme-secondary), to($theme-secondary-darken));
 
-$theme-accent: red;
+$theme-accent: #DD1A9C;
 $theme-disabled: grey;
 
 /** Light **/
@@ -18,3 +18,5 @@ $theme-light-footer: white;
 
 $theme-background: $theme-light-background;
 $theme-footer: $theme-light-footer;
+
+$gradient-blue: linear-gradient(-180deg, #237BD6, #2055C3);

@@ -15,8 +15,12 @@
   .cards {
     display: flex;
     justify-content: center;
+    align-items: center;
+    align-content: center;
     ul {
       flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
     }
   }
 }

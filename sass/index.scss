@@ -4,6 +4,14 @@
 
 $padding: 20px;
 
+#nav-bar-outside>li:nth-child(2) {
+  background-color: $theme-accent;
+}
+
+#nav-bar-nav>li:nth-child(2) {
+  background-color: $theme-accent;
+}
+
 #container {
   background-color: $theme-background;
 
@@ -92,6 +100,11 @@ $padding: 20px;
     flex-direction: column;
     align-items: center;
     padding: $padding;
+
+    h3>i, h3 {
+      @include text-gradient($theme-secondary, $theme-secondary-darken);
+    }
+
     ul {
       padding: 0px;
     }
@@ -144,7 +157,7 @@ $padding: 20px;
     grid-area: body;
   }
 
-  footer {
-    grid-area: footer;
+  #nav-bar-nav {
+    display: none !important;
   }
 }

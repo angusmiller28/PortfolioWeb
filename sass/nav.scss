@@ -13,6 +13,9 @@ nav#nav-container {
 }
 
 #nav-bar-nav, #nav-outside {
+  li:hover {
+    background: $theme-accent;
+  }
   li {
     margin: 0px 10px;
     background: $theme-disabled;
@@ -47,12 +50,22 @@ nav#nav-container {
 
 /********************************
 *********** Responsive **********/
-@media (min-width: 1920px){
-
-  #nav-bar-nav {
-    display: none !important;
+@media (max-width: 500px){
+  #nav-bar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+  #nav-bar-logo {
+    padding-bottom: 20px;
+  }
+  #nav-bar-nav {
+    grid-area: logo
+  }
+}
 
+@media (min-width: 1920px){
   #nav-outside {
     display: flex !important;
     width: 100%;

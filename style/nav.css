@@ -1,5 +1,5 @@
 /** Light **/
-p, h3, h1, h2 {
+p, h3, h1, h2, h4 {
   font-family: 'Montserrat', sans-serif; }
 
 /** Sizes **/
@@ -31,18 +31,13 @@ p {
   -webkit-text-fill-color: transparent;
   display: initial; }
 
-h3 > i, h3 {
-  background: #E98A0C;
-  background: linear-gradient(-180deg, #E98A0C, #f6ad4c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: initial; }
-
 nav#nav-container {
   background: linear-gradient(-180deg, #6D51DE, #4324be); }
   nav#nav-container ul#nav-bar-nav {
     justify-content: flex-end; }
 
+#nav-bar-nav li:hover, #nav-outside li:hover {
+  background: #DD1A9C; }
 #nav-bar-nav li, #nav-outside li {
   margin: 0px 10px;
   background: grey;
@@ -67,10 +62,19 @@ nav#nav-container {
 
 /********************************
 *********** Responsive **********/
-@media (min-width: 1920px) {
-  #nav-bar-nav {
-    display: none !important; }
+@media (max-width: 500px) {
+  #nav-bar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
 
+  #nav-bar-logo {
+    padding-bottom: 20px; }
+
+  #nav-bar-nav {
+    grid-area: logo; } }
+@media (min-width: 1920px) {
   #nav-outside {
     display: flex !important;
     width: 100%;

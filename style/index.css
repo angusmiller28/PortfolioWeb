@@ -1,5 +1,5 @@
 /** Light **/
-p, h3, h1, h2 {
+p, h3, h1, h2, h4 {
   font-family: 'Montserrat', sans-serif; }
 
 /** Sizes **/
@@ -31,12 +31,11 @@ p {
   -webkit-text-fill-color: transparent;
   display: initial; }
 
-h3 > i, h3 {
-  background: #E98A0C;
-  background: linear-gradient(-180deg, #E98A0C, #f6ad4c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: initial; }
+#nav-bar-outside > li:nth-child(2) {
+  background-color: #DD1A9C; }
+
+#nav-bar-nav > li:nth-child(2) {
+  background-color: #DD1A9C; }
 
 #container {
   background-color: #E6EAEE; }
@@ -94,6 +93,12 @@ h3 > i, h3 {
     flex-direction: column;
     align-items: center;
     padding: 20px; }
+    #container section#body-container h3 > i, #container section#body-container h3 {
+      background: #E98A0C;
+      background: linear-gradient(-180deg, #E98A0C, #f6ad4c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: initial; }
     #container section#body-container ul {
       padding: 0px; }
     #container section#body-container #title-container {
@@ -128,7 +133,7 @@ h3 > i, h3 {
   #body-container {
     grid-area: body; }
 
-  footer {
-    grid-area: footer; } }
+  #nav-bar-nav {
+    display: none !important; } }
 
 /*# sourceMappingURL=index.css.map */
