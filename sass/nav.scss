@@ -9,6 +9,7 @@ $padding: 20px;
   50%  {transform: scale(1.2);}
 }
 
+
 .pop:hover {
   animation: pop 0.3s linear 1;
 }
@@ -21,7 +22,17 @@ nav#nav-container {
   }
 }
 
+.fixedNav {
+    position: fixed;
+    background: rgba(255, 255, 255, .2);
+    width: 100%;
+    #nav-bar-nav, #logo {
+        padding-right: 40px !important;
+    }
+}
+
 #nav-bar-nav, #nav-outside {
+  padding-left: 0px !important;
   li:hover {
     background: $theme-accent;
   }
@@ -45,6 +56,7 @@ nav#nav-container {
   ul {
     display: flex;
     flex-direction: row;
+    padding-left: 0px !important;
   }
 
   #nav-bar-logo {

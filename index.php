@@ -33,6 +33,20 @@
             <li class="nav-more pop"><a href=""><i class="fas fa-bars"></i></a></li>
           </ul>
         </div>
+        
+        <div id="quick-index-container">
+            <ul>
+                <li><a href="#profile-container">Profile</a></li>
+                <li><a href="#social-container">Social</a></li>
+                <li><a href="#contact-container">Contact</a></li>
+                <li><a href="#transcript-container">Transcript link</a></li>
+                <li><a href="#cover-letter-container">Cover letter</a></li>
+                <li><a href="#education-container">Education</a></li>
+                <li><a href="#technical-container">Technical</a></li>
+                <li><a href="#references-container">References</a></li>
+                <li><a href="#certificate-container">Certificates</a></li>
+            </ul>
+        </div>
 
         <section id="nav-wrapper">
 
@@ -312,10 +326,10 @@
                 console.log(lastScrollTop);
                var st = $(this).scrollTop();
                if (st > lastScrollTop || lastScrollTop < 100){
-                   $("#nav-bar-container").css({"position":"relative","background":"rgba(255, 255, 255, 0)", "width":"100%"});
+                   $("#nav-bar-container").removeClass("fixedNav");
                } else {
                    if(lastScrollTop > 100){
-                       $("#nav-bar-container").css({"position":"fixed","background":"rgba(255, 255, 255, .2)", "width":"100%"});
+                       $("#nav-bar-container").addClass("fixedNav");
                    }
                   
                }

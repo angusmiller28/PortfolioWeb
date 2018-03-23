@@ -46,15 +46,24 @@ nav#nav-container {
   nav#nav-container ul#nav-bar-nav {
     justify-content: flex-end; }
 
-#nav-bar-nav li:hover, #nav-outside li:hover {
-  background: #DD1A9C; }
-#nav-bar-nav li, #nav-outside li {
-  margin: 0px 10px;
-  background: grey;
-  border-radius: 50%; }
-  #nav-bar-nav li i, #nav-outside li i {
-    padding: 20px;
-    color: white; }
+.fixedNav {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.2);
+  width: 100%; }
+  .fixedNav #nav-bar-nav, .fixedNav #logo {
+    padding-right: 40px !important; }
+
+#nav-bar-nav, #nav-outside {
+  padding-left: 0px !important; }
+  #nav-bar-nav li:hover, #nav-outside li:hover {
+    background: #DD1A9C; }
+  #nav-bar-nav li, #nav-outside li {
+    margin: 0px 10px;
+    background: grey;
+    border-radius: 50%; }
+    #nav-bar-nav li i, #nav-outside li i {
+      padding: 20px;
+      color: white; }
 
 #nav-bar-container {
   padding: 20px;
@@ -62,7 +71,8 @@ nav#nav-container {
   grid-template-columns: 10% auto; }
   #nav-bar-container ul {
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    padding-left: 0px !important; }
   #nav-bar-container #nav-bar-logo {
     flex: display;
     align-self: center; }
