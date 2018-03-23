@@ -4,6 +4,15 @@
 
 $padding: 20px;
 
+/* The animation code */
+@keyframes pop{
+  50%  {transform: scale(1.2);}
+}
+
+.pop:hover {
+  animation: pop 0.3s linear 1;
+}
+
 nav#nav-container {
   background: $theme-primary-gradient;
 

@@ -34,6 +34,13 @@ p {
 .error {
   color: #eb0d0d; }
 
+/* The animation code */
+@keyframes pop {
+  50% {
+    transform: scale(1.2); } }
+.pop:hover {
+  animation: pop 0.3s linear 1; }
+
 nav#nav-container {
   background: linear-gradient(-180deg, #6D51DE, #4324be); }
   nav#nav-container ul#nav-bar-nav {

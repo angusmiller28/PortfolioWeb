@@ -28,9 +28,9 @@
             </div></li>
           </ul>
           <ul id="nav-bar-nav">
-            <li class="nav-projects"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
+            <li class="nav-projects pop"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
             <li class="nav-index"><a href="index.php"><i class="fas fa-user"></i></a></li>
-            <li class="nav-more"><a href=""><i class="fas fa-bars"></i></a></li>
+            <li class="nav-more pop"><a href=""><i class="fas fa-bars"></i></a></li>
           </ul>
         </div>
 
@@ -305,7 +305,22 @@
             $("#cover-letter-content").hide();
             $("#cover-letter-btn").click(function(){
                 $("#cover-letter-content").toggle();    
-            });                  
+            });   
+            
+            var lastScrollTop = 0;
+            $(window).scroll(function(event){
+                console.log(lastScrollTop);
+               var st = $(this).scrollTop();
+               if (st > lastScrollTop || lastScrollTop < 100){
+                   $("#nav-bar-container").css({"position":"relative","background":"rgba(255, 255, 255, 0)", "width":"100%"});
+               } else {
+                   if(lastScrollTop > 100){
+                       $("#nav-bar-container").css({"position":"fixed","background":"rgba(255, 255, 255, .2)", "width":"100%"});
+                   }
+                  
+               }
+               lastScrollTop = st;
+            });
         });  
     </script>
   </body>
