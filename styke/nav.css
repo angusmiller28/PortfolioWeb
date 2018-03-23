@@ -31,9 +31,6 @@ p {
   -webkit-text-fill-color: transparent;
   display: initial; }
 
-.error {
-  color: #eb0d0d; }
-
 nav#nav-container {
   background: linear-gradient(-180deg, #6D51DE, #4324be); }
   nav#nav-container ul#nav-bar-nav {

@@ -1,4 +1,4 @@
-p, h3, h1, h2, h4 {
+p, h3, h1, h2, h4, input, label, span  {
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -33,4 +33,8 @@ p {
 
 #title {
   @include text-gradient($theme-primary, $theme-primary-darken);
+}
+
+.error {
+  color: $theme-error;
 }

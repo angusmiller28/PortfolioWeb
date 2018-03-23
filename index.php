@@ -26,9 +26,9 @@
             </div></li>
           </ul>
           <ul id="nav-bar-nav">
-            <li id="nav-projects"><a href="projects.html"><i class="fas fa-folder-open"></i></a></li>
-            <li id="nav-projects"><a href="index.html"><i class="fas fa-user"></i></a></li>
-            <li id="nav-projects"><a href=""><i class="fas fa-bars"></i></a></li>
+            <li class="nav-projects"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
+            <li class="nav-index"><a href="index.php"><i class="fas fa-user"></i></a></li>
+            <li class="nav-more"><a href=""><i class="fas fa-bars"></i></a></li>
           </ul>
         </div>
 
@@ -116,9 +116,9 @@
       <section id="body-container">
         <div id="nav-outside">
           <ul id="nav-bar-outside">
-            <li id="nav-projects"><a href="projects.html"><i class="fas fa-folder-open"></i></a></li>
-            <li id="nav-projects"><a href="index.html"><i class="fas fa-user"></i></a></li>
-            <li id="nav-projects"><a href=""><i class="fas fa-bars"></i></a></li>
+            <li class="nav-projects"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
+            <li class="nav-index"><a href="index.php"><i class="fas fa-user"></i></a></li>
+            <li class="nav-more"><a href=""><i class="fas fa-bars"></i></a></li>
           </ul>
         </div>
 

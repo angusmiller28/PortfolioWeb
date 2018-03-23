@@ -26,9 +26,9 @@
               </div></li>
             </ul>
             <ul id="nav-bar-nav">
-              <li id="nav-projects"><a href="projects.html"><i class="fas fa-folder-open"></i></a></li>
-              <li id="nav-projects"><a href="index.html"><i class="fas fa-user"></i></a></li>
-              <li id="nav-projects"><a href=""><i class="fas fa-bars"></i></a></li>
+              <li id="nav-projects"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
+              <li id="nav-index"><a href="index.php"><i class="fas fa-user"></i></a></li>
+              <li id="nav-more"><a href=""><i class="fas fa-bars"></i></a></li>
             </ul>
           </div>
         </nav>
@@ -38,9 +38,6 @@
 
           <div id="gallery" class="cards">
             <ul>
-              <li>
-                hello
-              </li>
               <li>
                 <div class="card">
                   <a href="project.html"><img src="img/card1-small.png" alt=""></a>

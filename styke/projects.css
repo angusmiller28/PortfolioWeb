@@ -31,9 +31,6 @@ p {
   -webkit-text-fill-color: transparent;
   display: initial; }
 
-.error {
-  color: #eb0d0d; }
-
 /** Light **/
 .cards ul {
   display: flex;

@@ -10,9 +10,9 @@ $display_image_err = "";
 $display_image2_err = "";
 $description_err = "";
 $tools_err = "";
-$github_link = "";
+$github_link_err = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
   $servername = "localhost";
   $username = "root";
   $password = "root";
@@ -22,7 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
 
     // Get data from the page
       if (empty($_POST["project-title"])){
@@ -37,14 +36,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $sub_title = $_POST["project-subtitle"];
       }
 
-      if (empty($_POST["project-card-image"])){
-        $card_image_err = "Card image required";
+      if (isset($_FILES['project-card-image'])){
+        $file_name = $_FILES['project-card-image']['name'];
+        $file_tmp = $_FILES['project-card-image']['tmp_name'];
+        move_uploaded_file($file_tmp, "images/".$file_name);
+
+
+        $card_image = new ImageUploader("D:\\xamp\\htdocs\\PortfolioWeb\\images\\card3-2x-small.png");
+        $card_content = &$card_image->fileContent();
+        var_dump($card_content);
       } else {
-        if (test_input($_POST["project-card-image"])){
-          $card_image = new ImageUploader("D:\\xamp\\php\\www\\PortfolioWeb\\img\\card1-small.png");//new ImageUploader("'.$_POST["project-card-image"].'");
-          $card_content = &$card_image->fileContent();
-        }
+        $card_image_err = "Card image required";
       }
+
 
       if (empty($_POST["project-display-image"])){
         $display_image = "Display image required";
@@ -77,29 +81,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
 
       if (empty($_POST["project-github-link"])){
-        $github_link = "GitHub link required";
+        $github_link_err = "GitHub link required";
       } else {
         $github_link = test_input($_POST["project-github-link"]);
       }
 
-      if ($name_err = "" &&
-      $sub_title_err = "" &&
-      $card_image_err = "" &&
-      $card_image_err = "" &&
-      $display_image_err = "" &&
-      $display_image2_err = "" &&
-      $description_err = "" &&
-      $tools_err = "" &&
-      $github_link = ""){
+      if ($name_err == "" &&
+      $sub_title_err == "" &&
+      $card_image_err == "" &&
+      $display_image_err == "" &&
+      $display_image2_err == "" &&
+      $description_err == "" &&
+      $tools_err == "" &&
+      $github_link_err == ""){
         // prepare query
-        $stmt = $conn->prepare('INSERT INTO projects (name, displayImage, displayImage2, cardImage, description, tools, githubLink) VALUES (:name, :displayImage, :displayImage2, :cardImage, :description, :tools, :githubLink)');
+        $stmt = $conn->prepare('INSERT INTO projects (name, subtitle,  displayImage, displayImage2, cardImage, description, tools, githubLink) VALUES (:name, :subtitle, :displayImage, :displayImage2, :cardImage, :description, :tools, :githubLink)');
         $stmt->bindValue(':name', $name);
+        $stmt->bindValue(':subtitle', $sub_title);
         $stmt->bindValue(':cardImage', $card_content, PDO::PARAM_LOB);
         $stmt->bindValue(':displayImage', $display_image, PDO::PARAM_LOB);
         $stmt->bindValue(':displayImage2', $display_image2, PDO::PARAM_LOB);
         $stmt->bindValue(':description', $description);
         $stmt->bindValue(':tools', $tools);
         $stmt->bindValue(':githubLink', $github_link);
+
+        // push project data to database
+        $stmt->execute();
+      } else if (
+        $name_err == "" &&
+        $sub_title_err == "" &&
+        $card_image_err == "" &&
+        // $display_image_err = "" &&
+        $description_err == ""
+      ){
+        // prepare query
+        $stmt = $conn->prepare('INSERT INTO projects (name, subtitle, cardImage, description ) VALUES (:name, :subtitle, :cardImage, :description)');
+        $stmt->bindValue(':name', $name);
+        $stmt->bindValue(':subtitle', $sub_title);
+        $stmt->bindValue(':cardImage', $card_content, PDO::PARAM_LOB);
+        // $stmt->bindValue(':displayImage', $display_image, PDO::PARAM_LOB);
+        $stmt->bindValue(':description', $description);
 
         // push project data to database
         $stmt->execute();
