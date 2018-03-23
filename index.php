@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
     <div id="container" >
@@ -129,10 +131,10 @@
             <ul class="item-list-title">
               <li><h3><i class="fas fa-address-book"></i></h3></li>
               <li><h3>Cover Letter</h3></li>
-              <li><h3><i class="fas fa-arrow-circle-down"></i></h3></li>
+              <li><h3><i id="cover-letter-btn"class="fas fa-arrow-circle-down"></i></h3></li>
             </ul>
           </li>
-          <li><p>As a successfully completed student who studied Bachelor of Science (Computing)
+          <li id="cover-letter-content"><p>As a successfully completed student who studied Bachelor of Science (Computing)
                 at USQ in Toowoomba, I am very interested in applying for the Junior
                 Java Developer position. </p>
 
@@ -298,5 +300,13 @@
       </footer>
 
     </div>
+    <script>
+        $(document).ready(function(){
+            $("#cover-letter-content").hide();
+            $("#cover-letter-btn").click(function(){
+                $("#cover-letter-content").toggle();    
+            });                  
+        });  
+    </script>
   </body>
 </html>
