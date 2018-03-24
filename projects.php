@@ -26,11 +26,6 @@
 
           <div id="gallery" class="cards">
             <ul>
-              <li>
-                <div class="card">
-                  <a href="project.html"><img src="img/card1-small.png" alt=""></a>
-                </div>
-              </li>
 
               <?php
 
@@ -46,19 +41,19 @@
 
                 // get datafrom database
 
-            $stmt = $conn->prepare('SELECT id, name, cardImage FROM projects');
-            $stmt->execute();
-            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-              ?><li><div class="card"><a href="project.php?<?php echo $row['id'] ?>"><img src="data:image/jpeg;base64,<?php echo base64_encode($row['cardImage']);?>" /></a></li><?php
+                $stmt = $conn->prepare('SELECT id, name, cardImage FROM projects');
+                $stmt->execute();
+                while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                  ?><li><div class="card"><a href="project.php?id=<?php echo $row['id'] ?>"><img src="data:image/jpeg;base64,<?php echo base64_encode($row['cardImage']);?>" /></a></li><?php
 
-            }
+                }
 
-              }
-              catch(PDOException $e)
-              {
-              echo "Error: " . $e->getMessage();
-              }
-              $conn = null;
+                }
+                catch(PDOException $e)
+                {
+                echo "Error: " . $e->getMessage();
+                }
+                $conn = null;
 
                ?>
             </ul>
@@ -66,16 +61,7 @@
         </section>
 
 
-        <footer>
-
-            <ul>
-              <li><p>Made with</p></li>
-              <li><div class="heart">
-               <p><i class="fa fa-heart"></i></p>
-             </div></li>
-             <li><p>by Angus Miller <?php echo date("Y") ?></p></li>
-            </ul>
-        </footer>
+        <?php include "footer.php" ?>
     </div>
 
 </body>

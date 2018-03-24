@@ -17,56 +17,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+
+    <?php
+      //////////////////////////////////
+      //////// Open Database ///////////
+      //////////////////////////////////
+      $servername = "localhost";
+      $username = "root";
+      $password = "root";
+      $dbname = "portfolio";
+
+      try {
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        // set the PDO error mode to exception
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+        $id = htmlspecialchars($_GET["id"]);
+
+        $stmt = $conn->prepare('SELECT name, displayImage, displayImage2, cardImage, description, tools, githubLink, subtitle FROM projects WHERE id=:id');
+        $stmt->bindValue(':id', $id);
+        $stmt->execute();
+
+        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $name = $row['name'];
+            $displayImage = $row['displayImage'];
+            $displayImage2 = $row['displayImage2'];
+            $cardImage = $row['cardImage'];
+            $description = $row['description'];
+            $tools = $row['tools'];
+            $githubLink = $row['githubLink'];
+            $subtitle = $row['subtitle'];
+        }
+    ?>
+
+
     <div id="container" >
         <nav id="nav-container">
-          <div id="nav-bar-container">
-            <ul>
-              <li id="nav-bar-logo"><div id="logo">
-                <img src="img/logo" alt="logo" height="23.15px" width="62.9px" />
-              </div></li>
-            </ul>
-            <ul id="nav-bar-nav">
-              <li id="nav-projects"><a href="projects.html"><i class="fas fa-folder-open"></i></a></li>
-              <li id="nav-projects"><a href="index.html"><i class="fas fa-user"></i></a></li>
-              <li id="nav-projects"><a href=""><i class="fas fa-bars"></i></a></li>
-            </ul>
-          </div>
+          <?php include 'nav.php';?>
         </nav>
-
         <section id="body-container">
           <ul id="project-title-container">
-            <li><div id="title-container"><h1 id="title-no-gradient">Stormy</h1></div></li>
-            <li><div id="subtitle-container"><h4 id="subtitle">Responsive weather app</h4></div></li>
+            <li><div id="title-container"><h1 id="title-no-gradient"><?php echo $name ?></h1></div></li>
+            <li><div id="subtitle-container"><h4 id="subtitle"><?php echo $subtitle ?></h4></div></li>
           </ul>
           <ul id="project-main-image-container">
-            <li><img src="img/project1.png" alt=""></li>
-            <li><img src="img/project1-2.png" alt=""></li>
+              <!-- Display Image 1 -->
+              <li><img src="data:image/jpeg;base64,<?php echo base64_encode($displayImage); ?>" /></li>
+
+              <?php
+                if (isset($row['displayImage2'])){
+                  ?>
+                  <!-- Display Image 2 -->
+                  <li><img src="data:image/jpeg;base64,<?php echo base64_encode();?>" /></li>
+
+                  <?php
+                }
+
+              ?>
           </ul>
 
           <ul id="project-description-container">
-            <li>
-              <p>
-                Stormy is a responsive weather application
-                that uses the Dark Sky API to display the user
-                weather based on their location.
-              </p>
-            </li>
+            <li><p><?php echo $description ?></p></li>
             <li>
               <ul>
                 <li><p>Built with <a href="https://darksky.net/dev">Dark Sky API</a></p></li>
-                <li><p>Check it out on github under account <a href="https://github.com/angusmiller28">angusmiller28</a></p></li>
+                <?php
+                  if (!empty($githubLink)){ ?>
+                    <li><p>Check it out on <i class="fab fa-github"></i> GitHub under account <a href="<?php echo $githubLink; ?>">angusmiller28</a></p></li>
+                 <?php } ?>
+                 <?php
+                   if (!empty($githubLink)){ ?>
+                     <li><p>Check it out on <i class="fab fa-dribbble"></i> Dribbble under account <a href="<?php echo $githubLink; ?>">angusmiller28</a></p></li>
+                  <?php } ?>
               </ul>
             </li>
           </ul>
 
           <ul id="back-container">
             <li><h3><i class="fas fa-arrow-circle-left"></i></h3></li>
-            <li><h3><a href="projects.html">Back to Projects</a></h3></li>
+            <li><h3><a href="projects.php">Back to Projects</a></h3></li>
           </ul>
         </section>
 
-        <footer>
-          <p>Made with love by Angus Miller 2018</p>
-        </footer>
+        <?php include 'footer.php';?>
     </div>
+
+    <?php
+      //////////////////////////////////
+      //////// Close Database ///////////
+      //////////////////////////////////
+      }
+      catch(PDOException $e)
+      {
+      echo "Error: " . $e->getMessage();
+      }
+      $conn = null;
+
+     ?>
+
   </body>

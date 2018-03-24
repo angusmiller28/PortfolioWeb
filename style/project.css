@@ -49,6 +49,45 @@ a:hover {
   padding-right: 8px;
   padding-left: 3px; }
 
+/** Light **/
+.cards ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px; }
+.cards .card {
+  padding: 10px; }
+  .cards .card img {
+    border: 16px solid white; }
+
+@media (min-width: 710px) {
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center; }
+    .cards ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center; } }
+/* Heart beat animation */
+@keyframes beat {
+  to {
+    transform: scale(1.4); } }
+.heart {
+  animation: beat .25s infinite alternate;
+  transform-origin: center; }
+
+/* The animation code */
+@keyframes pop {
+  50% {
+    transform: scale(1.2); } }
+.pop:hover, #nav-resume:hover, #nav-more:hover, #nav-projects:hover {
+  animation: pop 0.3s linear 1; }
+
+.active {
+  background: #DD1A9C !important; }
+
 p {
   color: white; }
 
@@ -124,5 +163,7 @@ div#container {
   max-width: 530px; }
   #project-description-container ul {
     padding: 0px; }
+
+/****** Set nav settings *********/
 
 /*# sourceMappingURL=project.css.map */

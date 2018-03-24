@@ -48,30 +48,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $card_content = $card_content;
         fclose($fp);
 
-        //$card_image = new ImageUploader("D:\\xamp\\php\\www\\PortfolioWeb\\img\\card1-small.png");
-        // $card_content = &$card_image->fileContent();
-        var_dump($card_content);
       } else {
         $card_image_err = "Card image required";
       }
 
 
-      if (empty($_POST["project-display-image"])){
-        $display_image = "Display image required";
+      if (isset($_FILES["project-display-image"])){
+        $file_name = $_FILES['project-display-image']['name'];
+        $file_tmp = $_FILES['project-display-image']['tmp_name'];
+        move_uploaded_file($file_tmp, "images/".$file_name);
+
+        // open image
+        $url = "images/".$file_name;
+        $fp = fopen($url, 'r');
+        $display_image = fread($fp, filesize($url));
+        $display_image = $display_image;
+        fclose($fp);
+
       } else {
-          if (test_input($_POST["project-display-image"])){
-            $display_image = new ImageUploader("D:\\xamp\\php\\www\\PortfolioWeb\\img\\card1-small.png"); //new ImageUploader("'.$_POST["project-display-image"].'");
-            $display_content = &$display_image->fileContent();
-          }
+        $display_image = "Display image required";
       }
 
-      if (empty($_POST["project-display-image2"])){
-        $display_image2 = "Display image required";
+      if (isset($_FILES["project-display-image2"])){
+        $file_name = $_FILES['project-display-image2']['name'];
+        $file_tmp = $_FILES['project-display-image2']['tmp_name'];
+        move_uploaded_file($file_tmp, "images/".$file_name);
+
+        // open image
+        $url = "images/".$file_name;
+        $fp = fopen($url, 'r');
+        $display_image2 = fread($fp, filesize($url));
+        $display_image2 = $display_image2;
+        fclose($fp);
       } else {
-          if (test_input($_POST["project-display-image2"])){
-            $display_image2 = new ImageUploader("D:\\xamp\\php\\www\\PortfolioWeb\\img\\card1-small.png"); //new ImageUploader("'.$_POST["project-display-image2"].'");
-            $display_content2 = &$display_image2->fileContent();
-          }
+        $display_image2 = "Display image required";
       }
 
       if (empty($_POST["project-description"])){

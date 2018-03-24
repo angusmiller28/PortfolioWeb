@@ -68,14 +68,13 @@
                     </ul>
                   </li>
                 </ul>
-                <!-- <ul>
+                <ul>
                   <li>
                     <ul>
                       <li><label for="project-display-image">Display image*</label></li>
                       <li><span class="error"><?php echo $display_image_err;?></span></li>
-                      <li><input type="file" name="project-display-image" id="project-display-image" accept="image/png" ng-model="displayImage.images" multiple app-filereader></li>
-                      <li><img ng-repeat="image in displayImage.images" ng-src="{{image}}" width="300" /></li>
-                      <li class="center-component"><button ng-click="displayImage.images = null" ng-show="!!displayImage.images" class="btn btn-warning">Remove image</button></li>
+                      <li><input type="file" name="project-display-image" id="project-display-image" accept="image/png" ng-file-select="onFileSelect($files)" ng-model="imageSrc2"></li>
+                      <li><img  ng-src="{{imageSrc2}}" width="300" id="myFile" /></li>
                     </ul>
                   </li>
                 </ul>
@@ -84,12 +83,11 @@
                     <ul>
                       <li><label for="project-display-image2">Display image 2*</label></li>
                       <li><span class="error"><?php echo $display_image2_err;?></span></li>
-                      <li><input type="file" name="project-display-image2" id="project-display-image2" accept="image/png" ng-model="displayImage2.images" multiple app-filereader></li>
-                      <li><img ng-repeat="image in displayImage2.images" ng-src="{{image}}" width="300" /></li>
-                      <li class="center-component"><button ng-click="displayImage2.images = null" ng-show="!!displayImage2.images" class="btn btn-warning">Remove image</button></li>
+                      <li><input type="file" name="project-display-image2" id="project-display-image2" accept="image/png" ng-file-select="onFileSelect($files)" ng-model="imageSrc3"></li>
+                      <li><img  ng-src="{{imageSrc3}}" width="300" id="myFile" /></li>
                     </ul>
                   </li>
-                </ul> -->
+                </ul>
                 <ul>
                   <li>
                     <ul>
@@ -126,11 +124,7 @@
           </div>
         </section>
 
-        <footer>
-          <p>Made with love by Angus Miller <?php echo date("Y") ?></p>
-
-          </div>
-        </footer>
+        <?php include "footer.php" ?>
     </div>
 
     <script>

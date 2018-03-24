@@ -1,6 +1,9 @@
 @import "_colours";
 @import "_mixins";
 @import "_font";
+@import "_components";
+@import "_animation";
+@import "_states";
 
 p {
   color: white;
@@ -101,4 +104,10 @@ div#container {
   ul {
     padding: 0px;
   }
+}
+
+
+/****** Set nav settings *********/
+#nav-resume, #nav-more, #nav-projects {
+  @extend .pop;
 }
