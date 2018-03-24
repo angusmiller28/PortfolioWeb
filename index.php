@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P" crossorigin="anonymous">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
   <body>
@@ -30,21 +30,26 @@
           <ul id="nav-bar-nav">
             <li class="nav-projects pop"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
             <li class="nav-index"><a href="index.php"><i class="fas fa-user"></i></a></li>
+            <li class="nav-more pop" id="quick-nav-btn"><i class="fa fa-link"></i></li>
             <li class="nav-more pop"><a href=""><i class="fas fa-bars"></i></a></li>
           </ul>
         </div>
-        
+
         <div id="quick-index-container">
             <ul>
-                <li><a href="#profile-container">Profile</a></li>
-                <li><a href="#social-container">Social</a></li>
-                <li><a href="#contact-container">Contact</a></li>
-                <li><a href="#transcript-container">Transcript link</a></li>
-                <li><a href="#cover-letter-container">Cover letter</a></li>
-                <li><a href="#education-container">Education</a></li>
-                <li><a href="#technical-container">Technical</a></li>
-                <li><a href="#references-container">References</a></li>
-                <li><a href="#certificate-container">Certificates</a></li>
+                <ul>
+                  <li><h3><i class="fa fa-link"></i> Quick Nav</h3></li>
+                  <li id="close-quick-nav-btn" class="pop"><h3><i class="fa fa-window-close"></i></h3></li>
+                </ul>
+                <li><a href="#profile-container"><p>Profile</p></a></li>
+                <li><a href="#social-container"><p>Social</p></a></li>
+                <li><a href="#contact-container"><p>Contact</p></a></li>
+                <li><a href="#transcript-container"><p>Transcript link</p></a></li>
+                <li><a href="#cover-letter-container"><p>Cover letter</p></a></li>
+                <li><a href="#education-container"><p>Education</p></a></li>
+                <li><a href="#technical-container"><p>Technical</p></a></li>
+                <li><a href="#references-container"><p>References</p></a></li>
+                <li><a href="#certificate-container"><p>Certificates</p></a></li>
             </ul>
         </div>
 
@@ -318,9 +323,9 @@
         $(document).ready(function(){
             $("#cover-letter-content").hide();
             $("#cover-letter-btn").click(function(){
-                $("#cover-letter-content").toggle();    
-            });   
-            
+                $("#cover-letter-content").toggle();
+            });
+
             var lastScrollTop = 0;
             $(window).scroll(function(event){
                 console.log(lastScrollTop);
@@ -331,11 +336,23 @@
                    if(lastScrollTop > 100){
                        $("#nav-bar-container").addClass("fixedNav");
                    }
-                  
+
                }
                lastScrollTop = st;
             });
-        });  
+
+            $("#quick-nav-btn").click(function(){
+                $("#quick-index-container").toggle();
+                $("#quick-nav-btn").toggleClass("active");
+                $("#quick-index-container").toggleClass("hidden-content");
+            });
+
+            $("#close-quick-nav-btn").click(function(){
+              $("#quick-index-container").toggle();
+              $("#quick-index-container").removeClass("hidden-content");
+              $("#quick-nav-btn").removeClass("active");
+            });
+        });
     </script>
   </body>
 </html>

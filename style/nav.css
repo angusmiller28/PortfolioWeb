@@ -41,6 +41,55 @@ p {
 .pop:hover {
   animation: pop 0.3s linear 1; }
 
+.active {
+  background: #DD1A9C !important; }
+
+#quick-index-container {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  padding-top: 100px;
+  display: flex;
+  justify-content: flex-end; }
+  #quick-index-container ul {
+    padding-right: 80px; }
+    #quick-index-container ul li i {
+      padding-right: 22.624; }
+    #quick-index-container ul li i, #quick-index-container ul li h3 {
+      color: #a391ea; }
+    #quick-index-container ul li p {
+      padding-left: 33px;
+      color: #a391ea; }
+
+.hidden-content {
+  display: flex !important; }
+
+#close-quick-nav-btn {
+  display: none; }
+
+@media (max-width: 1200px) {
+  #close-quick-nav-btn {
+    display: flex; }
+
+  #quick-index-container {
+    display: none;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    height: 100% !important;
+    padding-top: 0px;
+    top: 0px; }
+    #quick-index-container ul {
+      padding: 10px; }
+      #quick-index-container ul li p {
+        padding-left: 50px !important; }
+      #quick-index-container ul ul {
+        display: flex;
+        flex-direction: row; }
+        #quick-index-container ul ul li i {
+          padding-right: 10px; }
+        #quick-index-container ul ul li:nth-child(2) {
+          padding-left: 80px; } }
 nav#nav-container {
   background: linear-gradient(-180deg, #6D51DE, #4324be); }
   nav#nav-container ul#nav-bar-nav {
