@@ -4,11 +4,11 @@
 
 $padding: 20px;
 
-#nav-bar-outside>li:nth-child(2) {
-  background-color: $theme-accent; 
+#nav-bar-outside>div:nth-child(2) {
+  background-color: $theme-accent;
 }
 
-#nav-bar-nav>li:nth-child(2) {
+#nav-bar-nav>div:nth-child(2) {
   background-color: $theme-accent;
 }
 
@@ -24,11 +24,15 @@ $padding: 20px;
     }
   }
 
+
   nav#nav-container {
     hr {
       margin: 50px 0px;
       min-width: 300px !important;
-      width: 100% !important;
+      width: 80% !important;
+      height: 1px; border: 0;
+      background-color: $theme-primary-light !important;
+      border-color: $theme-primary-light !important;
       max-width: 500px !important;
     }
 
@@ -49,6 +53,11 @@ $padding: 20px;
       #profile-icon {
         display: flex;
         justify-content: center;
+        margin-bottom: 80px;
+        img {
+          height: 300px;
+          width: 300px;
+        }
       }
 
       [id$=container]{

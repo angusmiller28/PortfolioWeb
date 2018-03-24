@@ -26,3 +26,14 @@
     }
   }
 }
+
+
+/* Heart beat animation */
+@keyframes beat{
+	to { transform: scale(1.4)}
+}
+
+.heart {
+	animation: beat .25s infinite alternate;
+	transform-origin: center;
+}

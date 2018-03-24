@@ -20,6 +20,12 @@ p {
   line-height: 1.414em; }
 
 /** leading **/
+a:hover {
+  color: white;
+  text-decoration: none; }
+  a:hover p {
+    color: white !important; }
+
 #title-container {
   text-align: center;
   margin: 50px 0px; }
@@ -34,6 +40,15 @@ p {
 .error {
   color: #eb0d0d; }
 
+.firstcharacter {
+  color: #a391ea;
+  float: left;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px; }
+
 /* The animation code */
 @keyframes pop {
   50% {
@@ -45,10 +60,12 @@ p {
   background: #DD1A9C !important; }
 
 #quick-index-container {
-  width: 100%;
+  right: 20px;
+  top: 50px;
+  height: 100%;
   position: fixed;
   z-index: 100;
-  padding-top: 100px;
+  margin-top: 100px;
   display: flex;
   justify-content: flex-end; }
   #quick-index-container ul {
@@ -58,26 +75,36 @@ p {
     #quick-index-container ul li i, #quick-index-container ul li h3 {
       color: #a391ea; }
     #quick-index-container ul li p {
-      padding-left: 33px;
+      padding-left: 75px;
       color: #a391ea; }
 
-.hidden-content {
-  display: flex !important; }
+.flex-content {
+  display: flex !important;
+  position: fixed !important; }
+
+.hide-content {
+  display: none !important; }
 
 #close-quick-nav-btn {
   display: none; }
+  #close-quick-nav-btn .fa-window-close {
+    color: #eb630d !important; }
 
 @media (max-width: 1200px) {
+  #quick-nav-btn {
+    background: grey !important; }
+
   #close-quick-nav-btn {
     display: flex; }
 
   #quick-index-container {
     display: none;
     justify-content: center;
+    align-items: center;
     background-color: white;
     width: 100%;
     height: 100% !important;
-    padding-top: 0px;
+    margin-top: 0px !important;
     top: 0px; }
     #quick-index-container ul {
       padding: 10px; }
@@ -97,27 +124,36 @@ nav#nav-container {
 
 .fixedNav {
   position: fixed;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.5);
   width: 100%; }
   .fixedNav #nav-bar-nav, .fixedNav #logo {
     padding-right: 40px !important; }
 
+.float-right {
+  display: flex;
+  justify-content: flex-end;
+  background: none; }
+
 #nav-bar-nav, #nav-outside {
   padding-left: 0px !important; }
-  #nav-bar-nav li:hover, #nav-outside li:hover {
-    background: #DD1A9C; }
   #nav-bar-nav li, #nav-outside li {
-    margin: 0px 10px;
-    background: grey;
-    border-radius: 50%; }
+    margin: 0px 10px; }
+    #nav-bar-nav li div:hover, #nav-outside li div:hover {
+      background: #DD1A9C; }
+    #nav-bar-nav li div, #nav-outside li div {
+      background: grey;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%; }
     #nav-bar-nav li i, #nav-outside li i {
       padding: 20px;
       color: white; }
 
 #nav-bar-container {
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 10% auto; }
+  padding: 40px;
+  display: flex; }
+  #nav-bar-container #nav-bar-nav {
+    width: 100%; }
   #nav-bar-container ul {
     display: flex;
     flex-direction: row;
@@ -126,12 +162,23 @@ nav#nav-container {
     flex: display;
     align-self: center; }
 
+#slogan > div {
+  width: 500px;
+  margin-left: 20px; }
+  #slogan > div h3 {
+    color: white;
+    font-weight: 400;
+    text-align: left; }
+
 #nav-outside {
   display: none; }
 
 /********************************
 *********** Responsive **********/
-@media (max-width: 500px) {
+@media (max-width: 940px) {
+  #nav-container ul#nav-bar-nav {
+    justify-content: center !important; }
+
   #nav-bar-container {
     display: flex;
     flex-direction: column;
@@ -142,7 +189,17 @@ nav#nav-container {
     padding-bottom: 20px; }
 
   #nav-bar-nav {
-    grid-area: logo; } }
+    width: 100%; }
+
+  #slogan, #slogan > div {
+    max-width: 320px;
+    margin: 0px; }
+
+  #slogan > div > h3 {
+    text-align: center;
+    margin-top: 0px !important;
+    margin-bottom: 20px !important;
+    max-width: 320px; } }
 @media (min-width: 1920px) {
   #nav-outside {
     display: flex !important;
@@ -151,6 +208,9 @@ nav#nav-container {
     justify-content: flex-end; }
     #nav-outside #nav-bar-outside {
       display: flex;
-      flex-direction: row; } }
+      flex-direction: row; }
+
+  #nav-bar-nav {
+    position: fixed; } }
 
 /*# sourceMappingURL=nav.css.map */

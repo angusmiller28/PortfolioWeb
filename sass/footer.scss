@@ -1,6 +1,7 @@
 @import "_colours";
 @import "_mixins";
 @import "_font";
+@import "_components";
 
 footer {
   background-color: $theme-footer;
@@ -8,6 +9,11 @@ footer {
   padding: 20px;
   p {
     @include text-gradient($theme-primary, $theme-primary-darken);
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    li { padding: 0px 5px; }
   }
 }
 

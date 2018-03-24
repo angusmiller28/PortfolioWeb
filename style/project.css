@@ -20,6 +20,12 @@ p {
   line-height: 1.414em; }
 
 /** leading **/
+a:hover {
+  color: white;
+  text-decoration: none; }
+  a:hover p {
+    color: white !important; }
+
 #title-container {
   text-align: center;
   margin: 50px 0px; }
@@ -33,6 +39,15 @@ p {
 
 .error {
   color: #eb0d0d; }
+
+.firstcharacter {
+  color: #a391ea;
+  float: left;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px; }
 
 p {
   color: white; }

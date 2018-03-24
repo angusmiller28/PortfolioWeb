@@ -27,11 +27,16 @@
               <img src="img/logo" alt="logo" height="23.15px" width="62.9px" />
             </div></li>
           </ul>
+          <ul>
+            <li id="slogan"><div>
+              <h3>Web Designer & Developer</h3>
+            </div></li>
+          </ul>
           <ul id="nav-bar-nav">
-            <li class="nav-projects pop"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
-            <li class="nav-index"><a href="index.php"><i class="fas fa-user"></i></a></li>
-            <li class="nav-more pop" id="quick-nav-btn"><i class="fa fa-link"></i></li>
-            <li class="nav-more pop"><a href=""><i class="fas fa-bars"></i></a></li>
+            <li><a href="projects.php"><div class="pop nav-project"><i class="fas fa-folder-open"></i></div></a></li>
+            <li><a href="index.php"><div class="active"><i class="fas fa-user nav-index"></i></div></a></li>
+            <li><div class="nav-link active pop"  id="quick-nav-btn"><i class="fa fa-link"></i></div></li>
+            <li><a href=""><div class="nav-more pop"><i class="fas fa-bars"></i></div></a></li>
           </ul>
         </div>
 
@@ -41,15 +46,15 @@
                   <li><h3><i class="fa fa-link"></i> Quick Nav</h3></li>
                   <li id="close-quick-nav-btn" class="pop"><h3><i class="fa fa-window-close"></i></h3></li>
                 </ul>
-                <li><a href="#profile-container"><p>Profile</p></a></li>
-                <li><a href="#social-container"><p>Social</p></a></li>
-                <li><a href="#contact-container"><p>Contact</p></a></li>
-                <li><a href="#transcript-container"><p>Transcript link</p></a></li>
-                <li><a href="#cover-letter-container"><p>Cover letter</p></a></li>
-                <li><a href="#education-container"><p>Education</p></a></li>
-                <li><a href="#technical-container"><p>Technical</p></a></li>
-                <li><a href="#references-container"><p>References</p></a></li>
-                <li><a href="#certificate-container"><p>Certificates</p></a></li>
+                <li class="quick-nav-link"><a href="#profile-container"><p>Profile</p></a></li>
+                <li class="quick-nav-link"><a href="#social-container"><p>Social</p></a></li>
+                <li class="quick-nav-link"><a href="#contact-container"><p>Contact</p></a></li>
+                <li class="quick-nav-link"><a href="#transcript-container"><p>Transcript link</p></a></li>
+                <li class="quick-nav-link"><a href="#cover-letter-container"><p>Cover letter</p></a></li>
+                <li class="quick-nav-link"><a href="#education-container"><p>Education</p></a></li>
+                <li class="quick-nav-link"><a href="#technical-container"><p>Technical</p></a></li>
+                <li class="quick-nav-link"><a href="#references-container"><p>References</p></a></li>
+                <li class="quick-nav-link"><a href="#certificate-container"><p>Certificates</p></a></li>
             </ul>
         </div>
 
@@ -137,9 +142,10 @@
       <section id="body-container">
         <div id="nav-outside">
           <ul id="nav-bar-outside">
-            <li class="nav-projects"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
-            <li class="nav-index"><a href="index.php"><i class="fas fa-user"></i></a></li>
-            <li class="nav-more"><a href=""><i class="fas fa-bars"></i></a></li>
+            <li><a href="projects.php"><div class="nav-projects pop"><i class="fas fa-folder-open"></i></div></a></li>
+            <li><a href="index.php"><div class="nav-index active"><i class="fas fa-user"></i></div></a></li>
+
+            <li><a href=""><div class="nav-more "><i class="fas fa-bars"></i></div></a></li>
           </ul>
         </div>
 
@@ -315,10 +321,18 @@
       </section>
 
       <footer>
-        <p>Made with love by Angus Miller 2018</p>
+        <ul>
+          <li><p>Made with</p></li>
+          <li><div class="heart">
+           <p><i class="fa fa-heart"></i></p>
+         </div></li>
+         <li><p>by Angus Miller <?php echo date("Y") ?></p></li>
+        </ul>
+
       </footer>
 
     </div>
+    <script type="text/javascript" src="js/nav.js"/></script>
     <script>
         $(document).ready(function(){
             $("#cover-letter-content").hide();
@@ -326,31 +340,23 @@
                 $("#cover-letter-content").toggle();
             });
 
-            var lastScrollTop = 0;
-            $(window).scroll(function(event){
-                console.log(lastScrollTop);
-               var st = $(this).scrollTop();
-               if (st > lastScrollTop || lastScrollTop < 100){
-                   $("#nav-bar-container").removeClass("fixedNav");
-               } else {
-                   if(lastScrollTop > 100){
-                       $("#nav-bar-container").addClass("fixedNav");
-                   }
-
-               }
-               lastScrollTop = st;
-            });
-
             $("#quick-nav-btn").click(function(){
                 $("#quick-index-container").toggle();
                 $("#quick-nav-btn").toggleClass("active");
-                $("#quick-index-container").toggleClass("hidden-content");
+
+                if($( window ).width() <= 1200){
+                  $("#quick-index-container").toggleClass("flex-content");
+                }
             });
 
-            $("#close-quick-nav-btn").click(function(){
-              $("#quick-index-container").toggle();
-              $("#quick-index-container").removeClass("hidden-content");
-              $("#quick-nav-btn").removeClass("active");
+            $("#close-quick-nav-btn, .quick-nav-link").click(function(){
+              if($( window ).width() <= 1200){
+                $("#quick-nav-btn").removeClass("active");
+                $("#nav-bar-container").removeClass("fixedNav");
+                  $("#quick-index-container").css("display","none");
+                $("#quick-index-container").removeClass("flex-content");
+              }
+
             });
         });
     </script>

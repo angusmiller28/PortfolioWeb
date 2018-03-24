@@ -18,21 +18,9 @@
   </head>
   <body>
     <div id="container" >
-        <nav id="nav-container">
-          <div id="nav-bar-container">
-            <ul>
-              <li id="nav-bar-logo"><div id="logo">
-                <img src="img/logo" alt="logo" height="23.15px" width="62.9px" />
-              </div></li>
-            </ul>
-            <ul id="nav-bar-nav">
-              <li id="nav-projects"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
-              <li id="nav-index"><a href="index.php"><i class="fas fa-user"></i></a></li>
-              <li id="nav-more"><a href=""><i class="fas fa-bars"></i></a></li>
-            </ul>
-          </div>
-        </nav>
-
+      <nav id="nav-container">
+        <?php include 'nav.php';?>
+      </nav>
         <section id="body-container">
           <div id="title-container"><h1 id="title">Projects</h1></div>
 
@@ -43,72 +31,50 @@
                   <a href="project.html"><img src="img/card1-small.png" alt=""></a>
                 </div>
               </li>
-              <li>
-                <div class="card">
-                  <a href="project.html"><img src="img/card2-small.png" alt=""></a>
-                </div>
-              </li>
-              <li>
-                <div class="card">
-                  <a href="project.html"><img src="img/card3-small.png" alt=""></a>
-                </div>
-              </li>
+
+              <?php
+
+              $servername = "localhost";
+              $username = "root";
+              $password = "root";
+              $dbname = "portfolio";
+
+              try {
+                $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+                // set the PDO error mode to exception
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                // get datafrom database
+
+            $stmt = $conn->prepare('SELECT id, name, cardImage FROM projects');
+            $stmt->execute();
+            while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+              ?><li><div class="card"><a href="project.php?<?php echo $row['id'] ?>"><img src="data:image/jpeg;base64,<?php echo base64_encode($row['cardImage']);?>" /></a></li><?php
+
+            }
+
+              }
+              catch(PDOException $e)
+              {
+              echo "Error: " . $e->getMessage();
+              }
+              $conn = null;
+
+               ?>
             </ul>
           </div>
         </section>
 
 
         <footer>
-          <p>Made with love by Angus Miller <?php echo date("Y") ?></p>
-          <?php
 
-
-
-
-          $servername = "localhost";
-          $username = "root";
-          $password = "root";
-          $dbname = "portfolio";
-
-          try {
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-            // set the PDO error mode to exception
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            // open file
-            $newtmpName = "D:\\xamp\\php\\www\\PortfolioWeb\\img\\card1-small.png";
-            $name = "angus";
-
-            $fp = fopen($newtmpName, 'r');
-            $file_content = fread($fp, filesize($newtmpName));
-            $file_content = $file_content;
-            fclose($fp);
-
-          // prepare query
-          //$stmt = $conn->prepare('INSERT INTO test(name) VALUES("angus")');
-          $stmt = $conn->prepare('INSERT INTO projects (name, cardImage) VALUES (:name, :image)');
-          $stmt->bindValue(':name', $name);
-          $stmt->bindValue(':image', $file_content, PDO::PARAM_LOB);
-
-
-          $stmt->execute();
-          // get datafrom database
-
-        $stmt = $conn->prepare('SELECT name, cardImage FROM projects');
-        $stmt->execute();
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-          ?><h1><?php echo $row['name'] ?></h1><img src="data:image/jpeg;base64,<?php echo base64_encode($row['cardImage']);?>" /><?php
-
-        }
-
-          }
-          catch(PDOException $e)
-          {
-          echo "Error: " . $e->getMessage();
-          }
-          $conn = null;
-
-           ?>
+            <ul>
+              <li><p>Made with</p></li>
+              <li><div class="heart">
+               <p><i class="fa fa-heart"></i></p>
+             </div></li>
+             <li><p>by Angus Miller <?php echo date("Y") ?></p></li>
+            </ul>
         </footer>
     </div>
 

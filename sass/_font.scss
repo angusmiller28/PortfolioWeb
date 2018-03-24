@@ -26,6 +26,12 @@ p {
 //   letter-spacing: 0.05em;
 // }
 
+a:hover {
+  color: white;
+  text-decoration: none;
+  p { color: white !important; }
+}
+
 #title-container {
   text-align: center;
   margin: 50px 0px;
@@ -37,4 +43,16 @@ p {
 
 .error {
   color: $theme-error;
+}
+
+// Drop cap
+.firstcharacter {
+  color: $theme-primary-light;
+  float: left;
+
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
 }

@@ -20,6 +20,12 @@ p {
   line-height: 1.414em; }
 
 /** leading **/
+a:hover {
+  color: white;
+  text-decoration: none; }
+  a:hover p {
+    color: white !important; }
+
 #title-container {
   text-align: center;
   margin: 50px 0px; }
@@ -34,10 +40,19 @@ p {
 .error {
   color: #eb0d0d; }
 
-#nav-bar-outside > li:nth-child(2) {
+.firstcharacter {
+  color: #a391ea;
+  float: left;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px; }
+
+#nav-bar-outside > div:nth-child(2) {
   background-color: #DD1A9C; }
 
-#nav-bar-nav > li:nth-child(2) {
+#nav-bar-nav > div:nth-child(2) {
   background-color: #DD1A9C; }
 
 #container {
@@ -51,7 +66,11 @@ p {
   #container nav#nav-container hr {
     margin: 50px 0px;
     min-width: 300px !important;
-    width: 100% !important;
+    width: 80% !important;
+    height: 1px;
+    border: 0;
+    background-color: #a391ea !important;
+    border-color: #a391ea !important;
     max-width: 500px !important; }
   #container nav#nav-container section#nav-wrapper {
     display: flex;
@@ -65,7 +84,11 @@ p {
       color: #a391ea; }
     #container nav#nav-container section#nav-wrapper #profile-icon {
       display: flex;
-      justify-content: center; }
+      justify-content: center;
+      margin-bottom: 80px; }
+      #container nav#nav-container section#nav-wrapper #profile-icon img {
+        height: 300px;
+        width: 300px; }
     #container nav#nav-container section#nav-wrapper [id$=container] {
       min-width: 300px !important;
       width: 100% !important;

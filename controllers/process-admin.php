@@ -41,9 +41,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         $file_tmp = $_FILES['project-card-image']['tmp_name'];
         move_uploaded_file($file_tmp, "images/".$file_name);
 
+        // open image
+        $url = "images/".$file_name;
+        $fp = fopen($url, 'r');
+        $card_content = fread($fp, filesize($url));
+        $card_content = $card_content;
+        fclose($fp);
 
-        $card_image = new ImageUploader("D:\\xamp\\htdocs\\PortfolioWeb\\images\\card3-2x-small.png");
-        $card_content = &$card_image->fileContent();
+        //$card_image = new ImageUploader("D:\\xamp\\php\\www\\PortfolioWeb\\img\\card1-small.png");
+        // $card_content = &$card_image->fileContent();
         var_dump($card_content);
       } else {
         $card_image_err = "Card image required";

@@ -20,6 +20,12 @@ p {
   line-height: 1.414em; }
 
 /** leading **/
+a:hover {
+  color: white;
+  text-decoration: none; }
+  a:hover p {
+    color: white !important; }
+
 #title-container {
   text-align: center;
   margin: 50px 0px; }
@@ -34,6 +40,44 @@ p {
 .error {
   color: #eb0d0d; }
 
+.firstcharacter {
+  color: #a391ea;
+  float: left;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px; }
+
+/** Light **/
+.cards ul {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px; }
+.cards .card {
+  padding: 10px; }
+  .cards .card img {
+    border: 16px solid white; }
+
+@media (min-width: 710px) {
+  .cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center; }
+    .cards ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center; } }
+/* Heart beat animation */
+@keyframes beat {
+  to {
+    transform: scale(1.4); } }
+.heart {
+  animation: beat .25s infinite alternate;
+  transform-origin: center; }
+
 footer {
   background-color: white;
   text-align: center;
@@ -44,6 +88,11 @@ footer {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: initial; }
+  footer ul {
+    display: flex;
+    justify-content: center; }
+    footer ul li {
+      padding: 0px 5px; }
 
 @media (min-width: 1920px) {
   footer {

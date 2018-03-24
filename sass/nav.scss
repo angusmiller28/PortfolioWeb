@@ -1,29 +1,19 @@
 @import "_colours";
 @import "_mixins";
 @import "_font";
+@import "_animation.scss";
+@import "_states";
 
 $padding: 20px;
 
-/* The animation code */
-@keyframes pop{
-  50%  {transform: scale(1.2);}
-}
-
-
-.pop:hover {
-  animation: pop 0.3s linear 1;
-}
-
-.active {
-  background: $theme-accent !important;
-}
-
 
 #quick-index-container {
-  width: 100%;
+  right: 20px;
+  top: 50px;
+  height: 100%;
   position: fixed;
   z-index: 100;
-  padding-top: 100px;
+  margin-top: 100px;
   display: flex;
   justify-content: flex-end;
   ul {
@@ -31,20 +21,30 @@ $padding: 20px;
     li {
       i {padding-right: 22.624;}
       i, h3 { color: $theme-primary-light; }
-      p { padding-left: 33px;  color: $theme-primary-light;}
+      p { padding-left: 75px;  color: $theme-primary-light;}
     }
   }
 }
 
-.hidden-content {
+.flex-content {
   display: flex !important;
+  position: fixed !important;
+}
+
+.hide-content {
+  display: none !important;
 }
 
 #close-quick-nav-btn {
   display: none;
+  .fa-window-close { color: $theme-warning !important; }
 }
 
 @media (max-width: 1200px){
+  #quick-nav-btn {
+    background: $theme-disabled !important;
+  }
+
   #close-quick-nav-btn {
     display: flex;
   }
@@ -52,10 +52,11 @@ $padding: 20px;
   #quick-index-container {
     display: none;
     justify-content: center;
+    align-items: center;
     background-color: white;
     width: 100%;
     height: 100% !important;
-    padding-top: 0px;
+    margin-top: 0px !important;
     top: 0px;
 
     ul {
@@ -91,23 +92,33 @@ nav#nav-container {
 
 .fixedNav {
     position: fixed;
-    background: rgba(255, 255, 255, .2);
+    background: rgba(255, 255, 255, .5);
     width: 100%;
     #nav-bar-nav, #logo {
         padding-right: 40px !important;
     }
 }
 
+.float-right {
+  display: flex;
+  justify-content: flex-end;
+  background: none;
+}
+
 #nav-bar-nav, #nav-outside {
   padding-left: 0px !important;
-  li:hover {
-    background: $theme-accent;
-  }
+
   li {
     margin: 0px 10px;
-    background: $theme-disabled;
-    border-radius: 50%;
-
+    div:hover {
+      background: $theme-accent;
+    }
+    div {
+      background: $theme-disabled;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
     i {
       padding: 20px;
       color: white;
@@ -116,10 +127,12 @@ nav#nav-container {
 }
 
 #nav-bar-container {
-  padding: $padding;
-  display: grid;
-  grid-template-columns: 10% auto;
+  padding: 40px;
+  display: flex;
 
+  #nav-bar-nav {
+    width: 100%;
+  }
   ul {
     display: flex;
     flex-direction: row;
@@ -132,24 +145,52 @@ nav#nav-container {
   }
 }
 
+#slogan>div {
+  width: 500px;
+  margin-left: 20px;
+  h3 {
+    color: white;
+    font-weight: 400;
+    text-align: left;
+  }
+}
+
 #nav-outside {
   display: none;
 }
 
+
 /********************************
 *********** Responsive **********/
-@media (max-width: 500px){
+@media (max-width: 940px){
+  #nav-container {
+    ul#nav-bar-nav {
+      justify-content: center !important;
+    }
+  }
   #nav-bar-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
   }
   #nav-bar-logo {
     padding-bottom: 20px;
   }
+
   #nav-bar-nav {
-    grid-area: logo
+    width: 100%;
+  }
+  #slogan, #slogan>div {
+    max-width: 320px;
+    margin: 0px;
+  }
+  #slogan>div>h3 {
+    text-align: center;
+    margin-top: 0px !important;
+    margin-bottom: 20px !important;
+    max-width: 320px;
   }
 }
 
@@ -164,4 +205,9 @@ nav#nav-container {
       flex-direction: row;
     }
   }
+
+  #nav-bar-nav {
+    position: fixed;
+  }
+
 }

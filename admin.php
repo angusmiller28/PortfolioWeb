@@ -25,20 +25,9 @@
   <body>
     <?php require_once('controllers/process-admin.php'); ?>
     <div id="container" >
-        <nav id="nav-container">
-          <div id="nav-bar-container">
-            <ul>
-              <li id="nav-bar-logo"><div id="logo">
-                <img src="img/logo" alt="logo" height="23.15px" width="62.9px" />
-              </div></li>
-            </ul>
-            <ul id="nav-bar-nav">
-              <li id="nav-projects"><a href="projects.php"><i class="fas fa-folder-open"></i></a></li>
-              <li id="nav-projects"><a href="index.php"><i class="fas fa-user"></i></a></li>
-              <li id="nav-projects"><a href=""><i class="fas fa-bars"></i></a></li>
-            </ul>
-          </div>
-        </nav>
+      <nav id="nav-container">
+        <?php include 'nav.php'; ?>
+      </nav>
 
         <section id="body-container">
           <div id="title-container"><h1 id="title">Admin Panel</h1></div>

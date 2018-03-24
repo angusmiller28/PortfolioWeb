@@ -2,6 +2,8 @@
 @import "_mixins";
 @import "_font";
 @import "_components";
+@import "_animation";
+@import "_states";
 
 html, body {
   width: 100%;
@@ -34,7 +36,17 @@ footer {
 }
 
 #nav-bar-nav {
-  li:nth-child(1) {
-    background-color: $theme-accent;
+  ul {
+
   }
+}
+
+
+/****** Set nav settings *********/
+#nav-resume, #nav-more {
+  @extend .pop;
+}
+
+#nav-project {
+  @extend .active;
 }

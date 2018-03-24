@@ -1,4 +1,9 @@
-@import '_colours';
+@import "_colours";
+@import "_mixins";
+@import "_font";
+@import "_components";
+@import "_animation";
+@import "_states";
 
 
 #body-container {
@@ -15,7 +20,7 @@ form {
 
   img {
     padding: 10px 0px;
-    
+
   }
 
   ul {
@@ -62,4 +67,13 @@ form {
 .center-component {
   align-self: center;
   text-align: center;
+}
+
+/****** Set nav settings *********/
+#nav-resume, #nav-more {
+  @extend .pop;
+}
+
+#nav-project {
+  @extend .active;
 }
